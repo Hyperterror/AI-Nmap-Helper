@@ -36,13 +36,7 @@ def parse_intent(user_input: str):
 
     return {"target": ip_address, "mode": mode}
 
-def is_private_ip(ip: str) -> bool:
-    return (
-        ip.startswith("10.") or
-        ip.startswith("172.16.") or
-        ip.startswith("192.168.") or
-        ip == "127.0.0.1"
-    )
+
 
 def parse_nmap_output(stdout: str) -> list:
     """Parse nmap output and extract open ports with services."""
@@ -68,9 +62,6 @@ def build_nmap_command(intent: dict) -> List[str]:
 
     if not target:
         raise ValueError("No valid target IP address found in intent.")
-    if not is_private_ip(target):
-        raise ValueError("Target IP address is not private. Scanning public IPs may be illegal without permission.")
-
     # Use full path on Windows, simple command on Linux/Kali
     nmap_cmd = r"C:\Program Files (x86)\Nmap\nmap.exe" if platform.system() == "Windows" else "nmap"
 
