@@ -2,8 +2,6 @@
 
 A simple terminal-based assistant that combines **Nmap** with a **local AI helper**.  
 You describe a security task in natural language, the tool chooses a safe Nmap scan for a private IP, runs it, parses the results, and prints an easy-to-understand security summary.
-
-This project is designed as a minimal, educational example of **agentic cyber-defense**:  
 > intent → tool selection → command execution → result parsing → AI explanation.
 
 ---
